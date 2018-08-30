@@ -1,2 +1,2 @@
 # python-cubic-equation
-Python method to get numerical solutions of a cubic equation
+Python method to get numerical solutions of a cubic equation (including imaginary number).
