@@ -1,4 +1,3 @@
-import cmath
 import math
 
 import pytest
@@ -21,5 +20,5 @@ def test_solve(a, solutions):
     a3, a2, a1, a0 = a
     result = solve(a3, a2, a1, a0)
     for e, r in zip(solutions, result):
-        assert pytest.approx(e.real, r.real)
-        assert pytest.approx(e.imag, r.imag)
+        assert pytest.approx(e.real) == r.real
+        assert pytest.approx(e.imag) == r.imag
