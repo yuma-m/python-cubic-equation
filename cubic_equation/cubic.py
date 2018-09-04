@@ -15,11 +15,11 @@ def solve(a3, a2, a1, a0):
         raise ValueError("a3, a2 or a1 should be non-zero value.")
 
     if a3 == a2 == 0:
-        return - a0 / a1
+        return - a0 / a1,
 
     if a3 == 0:
         if a1 ** 2 - 4 * a2 * a0 == 0:
-            return -a1 / (2.0 * a2)
+            return -a1 / (2.0 * a2),
 
         x0 = (-a1 + cmath.sqrt(a1 ** 2 - 4 * a2 * a0)) / (2.0 * a2)
         x1 = (-a1 - cmath.sqrt(a1 ** 2 - 4 * a2 * a0)) / (2.0 * a2)
@@ -34,8 +34,12 @@ def solve(a3, a2, a1, a0):
     q = A0 - A1 * A2 / 3.0 + 2 * (A2 ** 3) / 27.0
     u = (q / 2.0) ** 2 + (p / 3.0) ** 3
 
-    k0 = (-q / 2.0 + cmath.sqrt(u)) ** (1 / 3.0)
-    k1 = (-q / 2.0 - cmath.sqrt(u)) ** (1 / 3.0)
+    if u >= 0:
+        k0 = -q / 2.0 + math.sqrt(u) ** (1 / 3.0)
+        k1 = -q / 2.0 - math.sqrt(u) ** (1 / 3.0)
+    else:
+        k0 = (-q / 2.0 + cmath.sqrt(u)) ** (1 / 3.0)
+        k1 = (-q / 2.0 - cmath.sqrt(u)) ** (1 / 3.0)
     omega1 = (-1 + 1j * math.sqrt(3)) / 2.0
     omega2 = (-1 - 1j * math.sqrt(3)) / 2.0
     y0 = k0 + k1
